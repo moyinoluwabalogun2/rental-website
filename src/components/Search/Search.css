@@ -1,0 +1,119 @@
+
+
+/* Search.css */
+
+/* ===== Base Styles ===== */
+.search {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+margin-bottom:1%;
+}
+
+/* ===== Input Field ===== */
+.search input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-right: 3.5rem; /* Space for button */
+  font-size: 1rem;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  border: 2px solid #dfe6e9;
+  border-radius: 50px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #2d3436;
+
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #74b9ff;
+  box-shadow: 0 6px 20px rgba(116, 185, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.search input::placeholder {
+  color: #b2bec3;
+  opacity: 1;
+}
+
+/* ===== Search Button ===== */
+.search button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #0984e3, #00cec9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.search button:hover {
+  background: linear-gradient(135deg, #0768b2, #00a8a5);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.search button:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.search button i {
+  font-size: 1rem;
+}
+
+/* ===== Focus Effects ===== */
+.search:focus-within {
+  transform: scale(1.01);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .search input {
+    padding: 0.9rem 1.2rem;
+    padding-right: 3rem;
+    font-size: 0.95rem;
+  }
+  
+  .search button {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search input {
+    padding: 0.8rem 1rem;
+    padding-right: 2.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .search button {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .search button i {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== Animation for Search Results ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-results {
+  animation: fadeIn 0.3s ease-out;
+}

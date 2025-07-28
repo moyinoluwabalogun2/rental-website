@@ -1,0 +1,105 @@
+.property-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.property-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.add-property-btn {
+  padding: 10px 20px;
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.no-properties {
+  text-align: center;
+  padding: 40px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.no-properties button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.property-management-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.property-management-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.property-info {
+  padding: 15px;
+}
+
+.property-info h3 {
+  margin-top: 0;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  background: #eee;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.property-actions {
+  display: flex;
+  padding: 0 15px 15px;
+  gap: 10px;
+}
+
+.property-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background: #3498db;
+  color: white;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+}

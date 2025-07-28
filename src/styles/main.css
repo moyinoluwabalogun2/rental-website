@@ -1,0 +1,134 @@
+/* styles/main.css */
+@import './variables.css';
+
+/* Base Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--primary-light);
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Links */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+
+/* Add to your main CSS file (e.g., main.css) */
+
+/* Layout fixes */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px 0;
+}
+
+/* Property card link fixes */
+.property-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Admin panel fixes */
+.admin-content {
+  padding: 20px;
+  min-height: calc(100vh - 120px);
+}
+
+/* Loading states */
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  padding: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

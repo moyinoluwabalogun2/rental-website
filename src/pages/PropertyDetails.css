@@ -1,0 +1,169 @@
+.property-details-page {
+  background-color: var(--primary-light);
+}
+
+/* Header */
+.property-header {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: var(--space-xl) 0;
+}
+
+.property-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.property-header .location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  opacity: 0.9;
+}
+
+/* Main Content */
+.property-main {
+  padding: var(--space-xl) 0;
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--space-xl);
+}
+
+.property-content {
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+}
+
+/* Gallery */
+.gallery {
+  margin-bottom: var(--space-xl);
+}
+
+/* Highlights */
+.property-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.highlight {
+  text-align: center;
+}
+
+.highlight .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  display: block;
+}
+
+.highlight .label {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+}
+
+/* Property Sections */
+.property-section {
+  margin-bottom: var(--space-xl);
+}
+
+.property-section h2 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gray-light);
+}
+
+/* Map */
+.map-container {
+  height: 400px;
+  background-color: var(--gray-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.map-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--gray-dark);
+}
+
+/* Sidebar */
+.property-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.contact-agent, .schedule-tour {
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+}
+
+.schedule-tour h3 {
+  margin-bottom: var(--space-md);
+  color: var(--primary-dark);
+}
+
+.tour-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tour-form input {
+  padding: var(--space-md);
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-sm);
+}
+
+.tour-button {
+  padding: var(--space-md);
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .property-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .contact-agent, .schedule-tour {
+    flex: 1 1 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-content {
+    padding: var(--space-lg);
+  }
+  
+  .property-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .highlight .value {
+    font-size: 1.5rem;
+  }
+}

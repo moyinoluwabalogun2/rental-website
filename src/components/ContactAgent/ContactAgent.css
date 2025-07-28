@@ -1,0 +1,83 @@
+.contact-agent {
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-agent h3 {
+  color: var(--primary-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-agent p {
+  color: var(--gray-dark);
+  margin-bottom: var(--space-lg);
+}
+
+.agent-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.input-with-icon {
+  position: relative;
+
+}
+
+.input-icon {
+  position: absolute;
+  left: 98%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-medium);
+  font-size:16px;
+  
+}
+
+.agent-form input {
+  width: 100%;
+  padding: var(--space-md) var(--space-md) var(--space-md) 40px;
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-sm);
+  
+}
+
+.agent-form textarea {
+  width: 100%;
+  padding: var(--space-md);
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+}
+
+.submit-button {
+  padding: var(--space-md);
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  transition: var(--transition-fast);
+}
+
+.submit-button:hover {
+  background-color: var(--accent-dark);
+}
+.submit-button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+

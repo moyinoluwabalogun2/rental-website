@@ -1,0 +1,11 @@
+.featured-properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .featured-properties {
+    grid-template-columns: 1fr;
+  }
+}

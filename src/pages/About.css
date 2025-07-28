@@ -1,0 +1,234 @@
+.about-page {
+  color: var(--text-dark);
+}
+
+/* Hero Section */
+.about-hero {
+  position: relative;
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('/public/assets/properties/about1.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.about-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.about-hero-content p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* General Section Styles */
+.about-section {
+  padding: var(--space-xl) 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+}
+
+/* Grid Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about-grid.reverse {
+  direction: rtl;
+}
+
+.about-grid.reverse > * {
+  direction: ltr;
+}
+
+.about-text {
+  padding: var(--space-md);
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-lg);
+  color: var(--accent-color);
+}
+
+.about-text p {
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+}
+
+.about-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+/* Values Section */
+.values-section {
+  background-color: var(--primary-light);
+}
+
+.value-item {
+  margin-bottom: var(--space-xl);
+}
+
+.value-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--primary-dark);
+}
+
+/* Team Section */
+.team-section {
+  background-color: white;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.team-member {
+  background-color: var(--primary-light);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.member-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--gray-light);
+  margin: 0 auto var(--space-md);
+  overflow: hidden;
+}
+
+.team-member h3 {
+  color: var(--primary-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.position {
+  color: var(--accent-color);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.bio {
+  color: var(--gray-dark);
+  font-size: 0.95rem;
+}
+
+/* CTA Section */
+.about-cta {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+.about-cta h2 {
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+}
+
+.about-cta p {
+  margin-bottom: var(--space-xl);
+  font-size: 1.2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.cta-button {
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.cta-button.primary {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+}
+
+.cta-button.primary:hover {
+  background-color: var(--accent-dark);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--text-light);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-grid.reverse {
+    direction: ltr;
+  }
+  
+  .about-image {
+    order: -1;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
