@@ -22,7 +22,7 @@ const Footer = () => {
         
         <div className="footer-section">
           <h4>Contact Us</h4>
-          <p><i className="fas fa-envelope"></i>bolsimfarmss@gmail.com,bolsimfarmss@aol.com</p>
+          <p><i className="fas fa-envelope"></i>bolsimfarmss@gmail.com</p>
           <p><i className="fas fa-phone"></i>+447983788435 </p>
           <p><i className="fas fa-map-marker-alt">no 1,ojuri close, ijagun,ijebu-ode</i></p>
         </div>
