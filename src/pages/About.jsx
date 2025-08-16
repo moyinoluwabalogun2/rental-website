@@ -9,7 +9,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="about-hero">
         <div className="about-hero-content">
-          <h1>About RentalEstate</h1>
+          <h1>About LivingSprings</h1>
           <p>Your trusted partner in finding the perfect home</p>
         </div>
       </section>
@@ -21,8 +21,9 @@ const About = () => {
             <div className="about-text">
               <h2>Our Story</h2>
               <p>
-                Founded in 2015, RentalEstate began with a simple mission: to make renting 
-                homes easier, faster, and more transparent. What started as a small team 
+                Living spring properties is a subsidiary of living spring Group,Founded in 2020,
+                to make renting homes Hostels for students easier and more transparent
+                . What started as a small team 
                 of passionate real estate professionals has grown into a trusted platform 
                 serving thousands of renters across the country.
               </p>
@@ -80,29 +81,29 @@ const About = () => {
           <h2 className="section-title">Meet Our Team</h2>
           <div className="team-grid">
             <div className="team-member">
-              <div className="member-image"></div>
-              <h3>Alex Johnson</h3>
+              <div className="member-imagee"></div>
+              <h3>Mr Balogun Tajudeen</h3>
               <p className="position">CEO & Founder</p>
               <p className="bio">
-                With over 15 years in real estate, Alex founded RentalEstate to 
+                With over 15 years in real estate, MR Balogun founded RentalEstate to 
                 solve the pain points he experienced in the rental market.
               </p>
             </div>
             <div className="team-member">
               <div className="member-image"></div>
-              <h3>Sarah Williams</h3>
+              <h3>Alhaji sanni</h3>
               <p className="position">Head of Operations</p>
               <p className="bio">
-                Sarah ensures every property meets our high standards and that our 
+                Alhaji Sanni ensures every property meets our high standards and that our 
                 clients receive exceptional service.
               </p>
             </div>
             <div className="team-member">
-              <div className="member-image"></div>
-              <h3>Michael Chen</h3>
+              <div className="member-imageee"></div>
+              <h3>Mrs Ayodele Balogun</h3>
               <p className="position">Technology Director</p>
               <p className="bio">
-                Michael leads our tech team in creating innovative solutions to 
+                Mrs Ayodele leads our tech team in creating innovative solutions to 
                 simplify the rental process.
               </p>
             </div>

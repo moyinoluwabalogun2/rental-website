@@ -140,6 +140,22 @@
   margin: 0 auto var(--space-md);
   overflow: hidden;
 }
+.member-imagee {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image:url('/public/assets/properties/dad.jpeg') ;
+  margin: 0 auto var(--space-md);
+  overflow: hidden;
+}
+.member-imageee {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image:url('/public/assets/properties/stepmum.jpeg') ;
+  margin: 0 auto var(--space-md);
+  overflow: hidden;
+}
 
 .team-member h3 {
   color: var(--primary-dark);

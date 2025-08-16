@@ -43,7 +43,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
-          <span>Rental</span>Estate
+          <span>Living</span>Spring
         </Link>
 
         <MobileNavToggle isOpen={isOpen} toggle={toggleMenu} />
