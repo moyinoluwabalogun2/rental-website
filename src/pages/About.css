@@ -139,6 +139,8 @@
   background-color: var(--gray-light);
   margin: 0 auto var(--space-md);
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 .member-imagee {
   width: 150px;
@@ -147,6 +149,8 @@
   background-image:url('/public/assets/properties/dad.jpeg') ;
   margin: 0 auto var(--space-md);
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 .member-imageee {
   width: 150px;
@@ -155,6 +159,8 @@
   background-image:url('/public/assets/properties/stepmumm.jpeg') ;
   margin: 0 auto var(--space-md);
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
 .team-member h3 {
