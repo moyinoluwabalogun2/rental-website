@@ -34,7 +34,7 @@
 
 .input-icon {
   position: absolute;
-  left: 98%;
+  left: 94%;
   top: 50%;
   transform: translateY(-50%);
   color: var(--gray-medium);
