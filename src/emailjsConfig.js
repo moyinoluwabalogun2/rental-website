@@ -1,5 +1,5 @@
 export const emailjsConfig = {
-  serviceID: 'YOUR_SERVICE_ID',
-  templateID: 'YOUR_TEMPLATE_ID',
-  userID: 'YOUR_USER_ID'
+  serviceID: 'service_17luh1h',
+  templateID: 'template_fxfefmd',
+  userID: 'Zwtze-EBbB1wJzE4O'
 };

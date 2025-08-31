@@ -42,7 +42,7 @@ const Contact = () => {
   });
 
   // WhatsApp number and formatted message
-  const whatsappNumber = '2348123456789'; // ✅ Replace with your number
+  const whatsappNumber = '+447983788435'; // ✅ Replace with your number
   const whatsappMessage = encodeURIComponent(
     `Hello, my name is ${formik.values.name}. I’m interested in ${formik.values.property || 'a property'}.\n\nMessage: ${formik.values.message}`
   );

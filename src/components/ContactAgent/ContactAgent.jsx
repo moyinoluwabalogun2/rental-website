@@ -11,7 +11,7 @@ import './ContactAgent.css';
 
 
 // Initialize EmailJS (replace with your actual public key)
-emailjs.init('YOUR_PUBLIC_KEY');
+emailjs.init('Zwtze-EBbB1wJzE4O');
 
 const ContactAgent = ({ property }) => {
   const [formData, setFormData] = useState({
@@ -38,8 +38,8 @@ const ContactAgent = ({ property }) => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_17luh1h',
+        'template_fxfefmd',
         {
           ...formData,
           property_title: property.title,
