@@ -18,7 +18,7 @@ import { init } from '@emailjs/browser';
 // Admin stuff
 import AdminLogin from './components/admin/AdminLogin';
 import ProtectedRoute from './components/admin/ProtectedRoute';
-import PropertyList from './components/admin/PropertyList.jsx';
+import PropertyList from './components/admin/Propertylist.jsx';
 import PropertyForm from './components/admin/PropertyForm';
 import AdminDashboard from './components/admin/AdminDashboard';
 
