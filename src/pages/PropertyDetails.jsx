@@ -67,12 +67,12 @@ const PropertyDetails = () => {
 
           <div className="property-highlights">
             <div className="highlight-item">
-              <span className="highlight-value">{property.bedrooms}</span>
-              <span className="highlight-label">Bedrooms</span>
+              <span className="highlight-value">{property.singleRooms}</span>
+              <span className="highlight-label">singleRooms</span>
             </div>
             <div className="highlight-item">
-              <span className="highlight-value">{property.bathrooms}</span>
-              <span className="highlight-label">Bathrooms</span>
+              <span className="highlight-value">{property.selfContainRooms}</span>
+              <span className="highlight-label">selfContainRooms</span>
             </div>
             <div className="highlight-item">
               <span className="highlight-value">{property.area} sqft</span>

@@ -80,9 +80,9 @@ const Properties = () => {
       property.price <= currentFilters.priceRange[1]
     );
 
-    if (currentFilters.bedrooms !== 'any') {
+    if (currentFilters.singleRooms !== 'any') {
       filtered = filtered.filter(property =>
-        property.bedrooms >= parseInt(currentFilters.bedrooms)
+        property.singleRooms >= parseInt(currentFilters.singleRooms)
       );
     }
 

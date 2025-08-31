@@ -6,21 +6,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Moyosore Olawore",
       role: "Renter",
-      content: "Found my dream apartment in just two days! The process was so smooth and the team was incredibly helpful throughout.",
+      content: "Found my apartment in just two days! The process was so smooth and the team was incredibly helpful throughout.",
       rating: 5
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Odunayo Adesoye",
       role: "Property Owner",
-      content: "As a landlord, I appreciate how professional and efficient RentalEstate is. They found me great tenants quickly.",
+      content: "As a landlord, I appreciate how professional and efficient living spring is. They found me great tenants quickly.",
       rating: 4
     },
     {
       id: 3,
-      name: "Emily Wilson",
+      name: "Adams Olayinka",
       role: "Renter",
       content: "The most user-friendly rental platform I've used. The virtual tours saved me so much time in my search.",
       rating: 5

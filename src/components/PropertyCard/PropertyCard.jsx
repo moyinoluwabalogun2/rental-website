@@ -37,8 +37,8 @@ const PropertyCard = ({ property }) => {
         </p>
         
         <div className="property-features">
-          <span><i className="fas fa-bed"></i> {property.bedrooms} beds</span>
-          <span><i className="fas fa-bath"></i> {property.bathrooms} baths</span>
+          <span><i className="fas fa-room"></i> {property.singleRooms} single rooms</span>
+          <span><i className="fas fa-room"></i> {property.selfContainRooms} self-contained rooms</span>
           <span>
             <i className="fas fa-ruler-combined"></i> 
             {property.area ? `${property.area.toLocaleString()} sqft` : 'N/A'}

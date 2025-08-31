@@ -10,8 +10,8 @@ const Filter = ({ filters, onFilterChange }) => {
     onFilterChange({ ...filters, priceRange: [0, parseInt(e.target.value)] });
   };
 
-  const handleBedroomsChange = (e) => {
-    onFilterChange({ ...filters, bedrooms: e.target.value });
+  const handleSingleRoomsChange = (e) => {
+    onFilterChange({ ...filters, singleRooms: e.target.value });
   };
 
   const handleStatusChange = (e) => {
@@ -28,8 +28,9 @@ const Filter = ({ filters, onFilterChange }) => {
           <option value="all">All Types</option>
           <option value="apartment">Apartment</option>
           <option value="house">House</option>
-           <option value="self con">self con</option>
-            <option value="rooms">rooms</option>
+           <option value="self contain rooms and single rooms">self contain rooms and single rooms</option>
+            <option value="single rooms">single rooms</option>
+            <option value="self contain rooms">self contain rooms</option>
             <option value="room and parlour">room and parlour</option>
         </select>
       </div>
@@ -51,13 +52,13 @@ const Filter = ({ filters, onFilterChange }) => {
       </div>
       
       <div className="filter-group">
-        <label>Bedrooms</label>
-        <select value={filters.bedrooms} onChange={handleBedroomsChange}>
+        <label>Single Rooms</label>
+        <select value={filters.singleRooms} onChange={handleSingleRoomsChange}>
           <option value="any">Any</option>
-          <option value="1">1+</option>
-          <option value="2">2+</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
+          <option value="10">10+</option>
+          <option value="20">20+</option>
+          <option value="30">30+</option>
+          <option value="40">40+</option>
         </select>
       </div>
       

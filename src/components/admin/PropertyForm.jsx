@@ -19,9 +19,9 @@ const PropertyForm = () => {
   const [property, setProperty] = useState({
     title: '',
     location: '',
-    price: '',
-    bedrooms: '',
-    bathrooms: '',
+    priceRange: '',
+    singleRooms: '',
+    selfContainRooms: '',
     area: '',
     type: 'apartment',
     status: 'available',
@@ -118,29 +118,29 @@ const PropertyForm = () => {
           <div className="form-group">
             <label>Price (#)*</label>
             <input
-              type="number"
-              name="price"
-              value={property.price}
+              type="text"
+              name="priceRange"
+              value={property.priceRange}
               onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
-            <label>Bedrooms*</label>
+            <label>single rooms*</label>
             <input
-              type="number"
-              name="bedrooms"
-              value={property.bedrooms}
+              type="text"
+              name="singleRooms"
+              value={property.singleRooms}
               onChange={handleChange}
               required
             />
           </div>
           <div className="form-group">
-            <label>Bathrooms*</label>
+            <label>self-contain rooms*</label>
             <input
-              type="number"
-              name="bathrooms"
-              value={property.bathrooms}
+              type="text"
+              name="selfContainRooms"
+              value={property.selfContainRooms}
               onChange={handleChange}
               required
             />
@@ -168,8 +168,9 @@ const PropertyForm = () => {
             >
               <option value="apartment">Apartment</option>
               <option value="house">House</option>
-              <option value="self con">self con</option>
-            <option value="rooms">rooms</option>
+              <option value="self contain room and single rooms">self contain rooms and single rooms</option>
+            <option value="single rooms">single rooms</option>
+            <option value="self contain rooms">self contain rooms</option>
             <option value="room and parlour">room and parlour</option>
             </select>
           </div>
