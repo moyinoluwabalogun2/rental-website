@@ -7,136 +7,134 @@ import { fetchAllProperties } from '../firebaseUtils';
 import './Properties.css';
 
 const Properties = () => {
-const [allProperties, setAllProperties] = useState([]);
-const [filteredProperties, setFilteredProperties] = useState([]);
-const [filters, setFilters] = useState({
-type: 'all',
-priceRange: [0, 50000000], // [min, max]
-bedrooms: 'any',
-status: 'all'
-});
-const location = useLocation();
+  const [allProperties, setAllProperties] = useState([]);
+  const [filteredProperties, setFilteredProperties] = useState([]);
+  const [filters, setFilters] = useState({
+    type: 'all',
+    priceRange: [0, 50000000],
+    singleRooms: 'any',
+    status: 'all'
+  });
 
-// Load properties from Firestore
-useEffect(() => {
-const loadProperties = async () => {
-try {
-const data = await fetchAllProperties();
-setAllProperties(data);
-} catch (error) {
-console.error('Failed to load properties:', error);
-}
-};
-loadProperties();
-}, []);
+  const location = useLocation();
 
-// Filter properties on search or filter change
-useEffect(() => {
-const params = new URLSearchParams(location.search);
-const searchQuery = params.get('search');
-let filtered = [...allProperties];
+  // Load all properties from Firestore
+  useEffect(() => {
+    const loadProperties = async () => {
+      try {
+        const data = await fetchAllProperties();
+        setAllProperties(data);
+      } catch (error) {
+        console.error('Failed to load properties:', error);
+      }
+    };
+    loadProperties();
+  }, []);
 
-if (searchQuery) {
-filtered = filtered.filter(property =>
-property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-property.location.toLowerCase().includes(searchQuery.toLowerCase())
-);
-}
+  // Filter properties whenever filters, location, or allProperties change
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const searchQuery = params.get('search');
 
-filtered = applyFilters(filtered, filters);
-setFilteredProperties(filtered);
-}, [location.search, filters, allProperties]);
+    let filtered = [...allProperties];
 
-const handleSearch = (searchTerm) => {
-let filtered = [...allProperties];
+    // Apply search filter
+    if (searchQuery) {
+      filtered = filtered.filter(property =>
+        property.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        property.location.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
 
-if (searchTerm) {
-filtered = filtered.filter(property =>
-property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-property.location.toLowerCase().includes(searchTerm.toLowerCase())
-);
-}
+    // Apply custom filters
+    filtered = applyFilters(filtered, filters);
+    setFilteredProperties(filtered);
+  }, [location.search, filters, allProperties]);
 
-filtered = applyFilters(filtered, filters);
-setFilteredProperties(filtered);
-};
+  // Handle search from Search component
+  const handleSearch = (searchTerm) => {
+    let filtered = [...allProperties];
 
-const handleFilterChange = (newFilters) => {
-setFilters(newFilters);
-};
+    if (searchTerm) {
+      filtered = filtered.filter(property =>
+        property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        property.location.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
-const applyFilters = (propertiesToFilter, currentFilters) => {
-let filtered = [...propertiesToFilter];
+    filtered = applyFilters(filtered, filters);
+    setFilteredProperties(filtered);
+  };
 
-// Type filter
-if (currentFilters.type !== 'all') {
-filtered = filtered.filter(property => property.type === currentFilters.type);
-}
+  // Update filters
+  const handleFilterChange = (newFilters) => {
+    setFilters(newFilters);
+  };
 
-// Status filter
-if (currentFilters.status !== 'all') {
-filtered = filtered.filter(property => property.status === currentFilters.status);
-}
+  // Apply filters function
+  const applyFilters = (propertiesToFilter, currentFilters) => {
+    let filtered = [...propertiesToFilter];
 
-// Price range filter
-if (currentFilters.priceRange && currentFilters.priceRange.length === 2) {
-filtered = filtered.filter(property =>
-property.price >= currentFilters.priceRange[0] &&
-property.price <= currentFilters.priceRange[1]
-);
-}
+    // Filter by type
+    if (currentFilters.type !== 'all') {
+      filtered = filtered.filter(property => property.type === currentFilters.type);
+    }
 
-// Bedrooms filter (if applicable)
-if (currentFilters.singleRooms && currentFilters.singleRooms !== 'any') {
-filtered = filtered.filter(property =>
-property.singleRooms >= parseInt(currentFilters.singleRooms)
-);
-}
+    // Filter by status
+    if (currentFilters.status !== 'all') {
+      filtered = filtered.filter(property => property.status === currentFilters.status);
+    }
 
-return filtered;
-};
+    // Filter by price (support single price and ranges)
+    filtered = filtered.filter(property => {
+      if (!property.price) return false;
 
-// Check if filters are at default values
-const noFilterSelected =
-filters.type === 'all' &&
-filters.status === 'all' &&
-filters.priceRange[0] === 0 &&
-filters.priceRange[1] === 50000000 &&
-(!filters.singleRooms || filters.singleRooms === 'any');
+      if (typeof property.price === 'string' && property.price.includes("-")) {
+        const [min, max] = property.price.split("-").map(p => Number(p.trim()));
+        return max >= currentFilters.priceRange[0] && min <= currentFilters.priceRange[1];
+      }
 
-return (
-<div className="properties-page">
-<div className="properties-header">
-<h1>Available Properties</h1>
-<p>Find your perfect home from our curated selection</p>
-</div>
+      const priceNum = Number(property.price);
+      return priceNum >= currentFilters.priceRange[0] && priceNum <= currentFilters.priceRange[1];
+    });
 
-<div className="properties-controls">
-<Search onSearch={handleSearch} />
-<Filter filters={filters} onFilterChange={handleFilterChange} />
-</div>
+    // Filter by singleRooms
+    if (currentFilters.singleRooms && currentFilters.singleRooms !== 'any') {
+      filtered = filtered.filter(property =>
+        Number(property.singleRooms) >= parseInt(currentFilters.singleRooms)
+      );
+    }
 
-{noFilterSelected && (
-<div className="no-filter">
-<h3>No filter selected</h3>
-<p>Showing all properties</p>
-</div>
-)}
+    return filtered;
+  };
 
-<div className="properties-grid">
-{filteredProperties.length > 0 ? (
-filteredProperties.map(property => (
-<PropertyCard key={property.id} property={property} />
-))
-) : (
-<div className="no-results">
-<h3>No properties match your search criteria</h3>
-<p>Try adjusting your filters or search terms</p>
-</div>
-)}
-</div>
-</div>
-);
+  return (
+    <div className="properties-page">
+      <div className="properties-header">
+        <h1>Available Properties</h1>
+        <p>Find your perfect home from our curated selection</p>
+      </div>
+
+      <div className="properties-controls">
+        <Search onSearch={handleSearch} />
+        <Filter filters={filters} onFilterChange={handleFilterChange} />
+      </div>
+
+      <div className="properties-grid">
+        {filteredProperties.length > 0 ? (
+          filteredProperties.map(property => (
+            <PropertyCard key={property.id} property={property} />
+          ))
+        ) : (
+          <div className="no-results">
+            <h3>No properties match your search criteria</h3>
+            <p>Try adjusting your filters or search terms</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Properties;
+

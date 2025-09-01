@@ -19,7 +19,7 @@ const PropertyForm = () => {
   const [property, setProperty] = useState({
     title: '',
     location: '',
-    priceRange: '',
+    price: '', // <- main field for single or range
     singleRooms: '',
     selfContainRooms: '',
     area: '',
@@ -68,21 +68,49 @@ const PropertyForm = () => {
     setLoading(true);
 
     try {
-      if (id) {
-        // Update existing
-        const docRef = doc(db, 'properties', id);
-        await updateDoc(docRef, { ...property, updatedAt: serverTimestamp() });
+      // Clean the price input
+      let cleanedPrice = property.price.trim(); // remove leading/trailing spaces
+      cleanedPrice = cleanedPrice.replace(/,/g, ""); // remove commas
+
+      // Validate price format (optional)
+      if (cleanedPrice.includes("-")) {
+        // Range: ensure both sides are numbers
+        const parts = cleanedPrice.split("-").map(p => Number(p.trim()));
+        if (parts.some(isNaN)) {
+          alert("Invalid price range. Use numbers only, e.g., 200000-300000");
+          setLoading(false);
+          return;
+        }
+        cleanedPrice = parts.join("-"); // normalized range string
       } else {
-        // Add new
-        await addDoc(collection(db, 'properties'), {
-          ...property,
+        // Single number
+        if (isNaN(Number(cleanedPrice))) {
+          alert("Invalid price. Use numbers only, e.g., 250000");
+          setLoading(false);
+          return;
+        }
+        cleanedPrice = String(Number(cleanedPrice));
+      }
+
+      const dataToSave = {
+        ...property,
+        price: cleanedPrice,
+        updatedAt: serverTimestamp()
+      };
+
+      if (id) {
+        const docRef = doc(db, "properties", id);
+        await updateDoc(docRef, dataToSave);
+      } else {
+        await addDoc(collection(db, "properties"), {
+          ...dataToSave,
           createdAt: serverTimestamp()
         });
       }
 
-      navigate('/admin/properties');
+      navigate("/admin/properties");
     } catch (error) {
-      console.error('Error saving property:', error);
+      console.error("Error saving property:", error);
     } finally {
       setLoading(false);
     }
@@ -116,19 +144,20 @@ const PropertyForm = () => {
         {/* Numbers */}
         <div className="form-row">
           <div className="form-group">
-            <label>Price (#)*</label>
+            <label>Price (# or range)*</label>
             <input
               type="text"
-              name="priceRange"
-              value={property.priceRange}
+              name="price"
+              value={property.price}
               onChange={handleChange}
+              placeholder="250000 or 200000-300000"
               required
             />
           </div>
           <div className="form-group">
-            <label>single rooms*</label>
+            <label>Single Rooms*</label>
             <input
-              type="text"
+              type="number"
               name="singleRooms"
               value={property.singleRooms}
               onChange={handleChange}
@@ -136,9 +165,9 @@ const PropertyForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>self-contain rooms*</label>
+            <label>Self-Contain Rooms*</label>
             <input
-              type="text"
+              type="number"
               name="selfContainRooms"
               value={property.selfContainRooms}
               onChange={handleChange}
@@ -168,10 +197,10 @@ const PropertyForm = () => {
             >
               <option value="apartment">Apartment</option>
               <option value="house">House</option>
-              <option value="self contain room and single rooms">self contain rooms and single rooms</option>
-            <option value="single rooms">single rooms</option>
-            <option value="self contain rooms">self contain rooms</option>
-            <option value="room and parlour">room and parlour</option>
+              <option value="self contain room and single rooms">Self contain rooms & single rooms</option>
+              <option value="single rooms">Single rooms</option>
+              <option value="self contain rooms">Self contain rooms</option>
+              <option value="room and parlour">Room and parlour</option>
             </select>
           </div>
           <div className="form-group">
