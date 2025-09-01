@@ -19,11 +19,12 @@ const PropertyCard = ({ property }) => {
         />
         <div className="property-badges">
           <span className="property-price">
-            #{typeof property.price === "string" && property.price.includes("-")? property.price
-            .split("-")
-              .map(p => Number(p.trim()).toLocaleString())
-            .join(" - ")
-           : Number(property.price || 0).toLocaleString()}/mo
+            #{typeof property.price === "string" && property.price.includes("-")
+? property.price
+.split("-")
+.map(p => Number(p.trim()).toLocaleString())
+.join(" - ")
+: Number(property.price || 0).toLocaleString()}/mo
           </span>
           {property.status === 'rented' && (
             <span className="property-status rented">Rented</span>
