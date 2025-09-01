@@ -18,11 +18,11 @@ import { init } from '@emailjs/browser';
 // Admin stuff
 import AdminLogin from './components/admin/AdminLogin';
 import ProtectedRoute from './components/admin/ProtectedRoute';
-import PropertyList from './components/admin/Propertylist.jsx';
+import PropertyList from './components/admin/PropertyList.jsx';
 import PropertyForm from './components/admin/PropertyForm';
 import AdminDashboard from './components/admin/AdminDashboard';
 
-init('YOUR_PUBLIC_KEY');
+init('Zwtze-EBbB1wJzE4O');
 
 class AppErrorBoundary extends React.Component {
   constructor(props) {
