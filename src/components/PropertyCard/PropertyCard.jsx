@@ -24,7 +24,7 @@ const PropertyCard = ({ property }) => {
 .split("-")
 .map(p => Number(p.trim()).toLocaleString())
 .join(" - ")
-: Number(property.price || 0).toLocaleString()}/mo
+: Number(property.price || 0).toLocaleString()}/yr
           </span>
           {property.status === 'rented' && (
             <span className="property-status rented">Rented</span>

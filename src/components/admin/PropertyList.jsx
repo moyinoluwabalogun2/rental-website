@@ -67,7 +67,7 @@ const PropertyList = () => {
               <img src={property.image} alt={property.title} />
               <div className="property-info">
                 <h3>{property.title}</h3>
-                <p>#{property.price}/mo • {property.location}</p>
+                <p>#{property.price}/yr • {property.location}</p>
                 <div className="status-badge">{property.status}</div>
               </div>
               <div className="property-actions">
